@@ -39,7 +39,7 @@ const Folders = () => {
                     )
                 })}
                 {addNew && <div className="folder new">
-                    <input type="text" placeholder="Name"/>
+                    <input className="new-entry" type="text" placeholder="Name"/>
                 </div>}
             </div>
         </div>
