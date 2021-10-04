@@ -4,7 +4,7 @@ import { getNotes } from "../../Services/Notes";
 import "./Notes.scss"
 
 const Notes = () => {
-    const [notes, setNotes] = useState([]);
+    const [notes, setNotes] = useState([])
     const [noteIndex, setNoteIndex] = useState(0);
 
     useEffect(() => {
@@ -12,6 +12,11 @@ const Notes = () => {
             setNotes(response.data)
         })
     }, []);
+
+    const dispatchNoteEvent = (note) => {
+        const noteEvent = new CustomEvent('note', { detail: {note: note} });
+        document.dispatchEvent(noteEvent)
+    }
 
     return (
         <div className="notes">
@@ -23,7 +28,8 @@ const Notes = () => {
                 {notes.map((note, index) => {
                     return (
                         <div className={`note ${noteIndex === index ? 'selected' : '' }`} key={note.id} onClick={() => {
-                            setNoteIndex(index)
+                            setNoteIndex(index);
+                            dispatchNoteEvent(note)
                         }}>
                             <p className="title">{note.title}</p>
                             <p className="body">{note.body}</p>
