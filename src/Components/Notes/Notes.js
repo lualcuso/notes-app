@@ -9,7 +9,8 @@ const Notes = () => {
         getNotes().then((response) => {
             setNotes(response.data)
         })
-    }, [])
+    }, []);
+
     return (
         <div className="notes">
             <div className="actions">
@@ -18,7 +19,13 @@ const Notes = () => {
             </div>
             <div className="list">
                 {notes.map((note) => {
-                    return <div className="note" key={note.id}>{note.title}</div>
+                    return (
+                        <div className="note" key={note.id}>
+                            <p className="title">{note.title}</p>
+                            {/*<p className="body">{note.body}</p>*/}
+                            {/*<p className="date">{note.updated_at}</p>*/}
+                        </div>
+                    )
                 })}
 
             </div>
