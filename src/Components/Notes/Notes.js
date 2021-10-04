@@ -1,8 +1,28 @@
-import React from 'react';
+import React, {useState, useEffect} from 'react';
+import {getNotes} from "../../Services/Notes";
+
+import "./Notes.scss"
 
 const Notes = () => {
+    const [notes, setNotes] = useState([])
+    useEffect(() => {
+        getNotes().then((response) => {
+            setNotes(response.data)
+        })
+    }, [])
     return (
-        <p>Notes component</p>
+        <div className="notes">
+            <div className="actions">
+                <button><i className="fas fa-plus"/></button>
+                <button><i className="fas fa-trash-alt"/></button>
+            </div>
+            <div className="list">
+                {notes.map((note) => {
+                    return <div className="note" key={note.id}>{note.title}</div>
+                })}
+
+            </div>
+        </div>
     )
 }
 

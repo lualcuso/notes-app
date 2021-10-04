@@ -1,8 +1,12 @@
 import React from 'react';
 
+import './Editor.scss'
+
 const Editor = () => {
     return (
-        <p>Editor component</p>
+        <div className="editor">
+
+        </div>
     )
 }
 
