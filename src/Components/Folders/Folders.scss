@@ -19,10 +19,12 @@
 
   .list {
     .folder {
+      display: flex;
       height: 30px;
       padding: 10px;
       border-bottom: 1px solid #cccccc;
       cursor: pointer;
+      align-items: center;
 
       .title {
         margin: 0;
