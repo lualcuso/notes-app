@@ -5,7 +5,7 @@ import "./Notes.scss"
 
 const Notes = () => {
     const [notes, setNotes] = useState([])
-    const [noteIndex, setNoteIndex] = useState(0);
+    const [noteIndex, setNoteIndex] = useState(-1);
 
     useEffect(() => {
         getNotes().then((response) => {
@@ -31,8 +31,7 @@ const Notes = () => {
                             setNoteIndex(index);
                             dispatchNoteEvent(note)
                         }}>
-                            <p className="title">{note.title}</p>
-                            <p className="body">{note.body}</p>
+                            <p className="body">{note.content}</p>
                             <p className="date">{note.updated_at}</p>
                         </div>
                     )

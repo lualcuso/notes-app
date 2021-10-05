@@ -3,7 +3,6 @@ import React, {useEffect, useState, useRef} from 'react';
 import './Editor.scss'
 
 const Editor = () => {
-    const titleRef = useRef();
     const bodyRef = useRef();
     const [note, setNote] = useState(null);
 
@@ -28,12 +27,13 @@ const Editor = () => {
                 </button>
             </div>
             <div className="container">
-                {note && <input type="text" className="note-title" ref={titleRef}
-                                value={note.title} onChange={() => {}}/>}
                 {note && <textarea ref={bodyRef}
-                                   className="note-body" cols="30" rows="10"
-                                   value={note.body}
-                                   onChange={() => {}}/>}
+                                   className="note-content" cols="30" rows="10"
+                                   value={note.content}
+                                   onChange={(event) => {
+                                       const updatedNode = Object.assign({}, note, {content: event.target.value});
+                                       setNote(updatedNode);
+                                   }}/>}
             </div>
 
         </div>

@@ -19,23 +19,25 @@
 
   .list {
     .note {
+      display: flex;
+      flex-flow: column;
+      justify-content: center;
       height: 60px;
       padding: 10px;
       border-bottom: 1px solid #cccccc;
       cursor: pointer;
 
-      .title {
-        font-weight: bold;
+      .body, .date {
         margin: 5px 0 0 0;
       }
 
-      .body, .date {
-        font-size: 12px;
-        margin: 5px 0 0 0;
+      .body {
+        font-size: 14px;
+        font-weight: bold;
       }
 
       .date {
-        font-size: 10px;
+        font-size: 12px;
         font-style: italic;
       }
 
