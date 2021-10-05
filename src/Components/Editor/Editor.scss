@@ -1,5 +1,8 @@
 .editor {
+  display: flex;
+  flex-flow: column;
   flex-grow: 2;
+  overflow: hidden;
 
   .actions {
     display: flex;
